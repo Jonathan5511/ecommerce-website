@@ -24,15 +24,14 @@ const productsArr = [
 ]
 
 const AvailableProducts=props=>{
-   
     return(
-        <section>
+        <Container className="mt-3 "> 
             <ul>
-            <Row lg={2}>
+            <Row lg={3} className="mx-0">
          {productsArr.map(item=>(
-                <Container className="mt-3" >
+                
                         <li style={{listStyle:"none"}}>
-                            <Col className="d-flex" >
+                            <Col className="d-flex">
                                 <Card style={{ width: '18rem' }}>
                                     <CardTitle style={{textAlign:"center"}}>{item.title}</CardTitle>
                                     <Image src={item.imageUrl}></Image>
@@ -44,11 +43,10 @@ const AvailableProducts=props=>{
                                 </Card>
                                 </Col>
                         </li>
-                </Container> 
          ))}
          </Row>
          </ul>
-        </section>
+        </Container>
     )
     
     
