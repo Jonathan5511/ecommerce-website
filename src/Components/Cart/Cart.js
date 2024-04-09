@@ -2,29 +2,18 @@ import Button from 'react-bootstrap/Button';
 import Usermodal from '../UI/Usermodal';
 import Modal from 'react-bootstrap/Modal';
 import { Row,Col, Table, Image } from 'react-bootstrap';
-
-const cartElements = [
-    { 
-    title: 'Colors',
-    price: 100, 
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',  
-    quantity: 2,   
-    }, 
-    {  
-    title: 'Black and white Colors', 
-    price: 50,  
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png', 
-    quantity: 3, 
-    }, 
-    { 
-    title: 'Yellow and Black Colors', 
-    price: 70, 
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-    quantity: 1, 
-    }
-]
+import { useContext } from 'react';
+import CartContext from '../../store/cart-context';
 
 const Cart=props=>{
+    const cartCtx=useContext(CartContext);
+    
+    const totalAmount=`$${cartCtx.totalAmount.toFixed(2)}`
+
+    const onRemoveHandler=(id)=>{
+        cartCtx.removeItem(id)
+    }
+
     return(
     <Usermodal onClose={props.onClose}>
         <Modal.Dialog>
@@ -32,7 +21,10 @@ const Cart=props=>{
             <Modal.Title>Cart</Modal.Title>
           </Modal.Header>
             <hr/>
-          <Modal.Body>
+          <Modal.Body style={{
+            maxHeight: 'calc(100vh - 210px)',
+            overflowY: 'auto'
+            }}>
             <Row>
                 <Col>
                     <Table className='align-middle ' size="sm" responsive>
@@ -44,9 +36,9 @@ const Cart=props=>{
                             </tr>
                         </thead>
                         <tbody>
-                            {cartElements.map(item=>{
+                            {cartCtx.items.map(item=>{
                                 return(
-                                    <tr key={Math.random().toString()}>
+                                    <tr key={item.id}>
                                         <td >
                                             <h6>                                           
                                                 {item.title}
@@ -59,25 +51,31 @@ const Cart=props=>{
                                         </td >
                                         <td  >
                                             <h6>
-                                                {item.price}
+                                                ${item.price}
                                             </h6>
                                         </td>
                                         <td >
                                             <h6>
                                                 {item.quantity }&nbsp;&nbsp;&nbsp;
-                                                <Button type='button'>Remove</Button>
+                                                <Button type='button' onClick={()=>onRemoveHandler(item.id)}>Remove</Button>
                                             </h6>
                                         </td>
+                                        
                                     </tr>
+                                    
                                 )
                             })}
                         </tbody>
                     </Table>
                 </Col>
             </Row>
-          </Modal.Body>
-  
+          </Modal.Body>             
           <Modal.Footer>
+            <div class="modal-footer justify-content-between">                  
+                <h6 >
+                    TOTAL AMOUNT:{totalAmount}
+                </h6>  
+            </div>&nbsp;&nbsp;&nbsp;
             <Button variant="secondary" onClick={props.onClose}>Close</Button>&nbsp;
             <Button variant="primary">Purchase</Button>
           </Modal.Footer>
