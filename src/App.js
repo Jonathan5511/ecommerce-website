@@ -1,26 +1,25 @@
-import Header from "./Components/Header/Header";
-import AvailableProducts from "./Components/Products/AvailableProducts";
-import Cart from "./Components/Cart/Cart";
-import { useState } from "react";
-import CartProvider from "./store/CartProvider";
+import { Fragment} from "react";
+import {createBrowserRouter,RouterProvider} from 'react-router-dom';
+import About from "./Pages/About";
+import Store from "./Pages/Store";
+import RootLayout from "./Pages/root";
+
+const router = createBrowserRouter([
+  {
+    path:'/',
+    element:<RootLayout/>,
+    children:[
+      {path:'/',element:<Store/>},
+      {path:'/about',element:<About/>}
+    ] 
+  }
+])
 
 function App() {
-  const [showCart,setShowCart] = useState(false);
-
-  const onShowCartHandler=()=>{
-    setShowCart(true);
-  }
-
-  const onHideCartHandler=props=>{
-    setShowCart(false);
-  }
-
   return (
-    <CartProvider>
-      {showCart && <Cart onClose={onHideCartHandler} />}
-      <Header onShow={onShowCartHandler}/>
-      <AvailableProducts />
-    </CartProvider>
+    <Fragment>
+      <RouterProvider router={router}/>
+    </Fragment>
   );
 }
 

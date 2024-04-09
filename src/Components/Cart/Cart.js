@@ -73,7 +73,7 @@ const Cart=props=>{
           <Modal.Footer>
             <div class="modal-footer justify-content-between">                  
                 <h6 >
-                    TOTAL AMOUNT:{totalAmount}
+                    TOTAL AMOUNT: {totalAmount}
                 </h6>  
             </div>&nbsp;&nbsp;&nbsp;
             <Button variant="secondary" onClick={props.onClose}>Close</Button>&nbsp;
