@@ -1,15 +1,18 @@
-import { Nav, Col, Row,Navbar,Container  } from "react-bootstrap";
+import { Fragment } from "react";
+import { Nav, Col, Row,Navbar,Container} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import classes from './MainNavigation.module.css'
 
 const MainNavigation=(props)=>{
     return (
+        <Fragment>
             <h5>
                 <Navbar bg="dark" data-bs-theme="dark">
                 <Container>
                     <Nav className="me-auto" >
                             <Row >
                                 <Col>
-                                    <NavLink style={{color:'white', textDecoration: 'none'}} >HOME</NavLink>
+                                    <NavLink to="/home" style={{color:'white', textDecoration: 'none'}} >HOME</NavLink>
                                 </Col>
                                 &nbsp;&nbsp;&nbsp;
                                 <Col>
@@ -23,7 +26,14 @@ const MainNavigation=(props)=>{
                     </Nav>
                     </Container>
                 </Navbar>
-            </h5>  
+            </h5>
+            <div className={classes.header}>
+                <header >
+                    <h1>The Generics</h1>
+                </header>
+            </div>
+            <br/>
+            </Fragment> 
     )
 }
 
