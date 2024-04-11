@@ -1,0 +1,52 @@
+.control {
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 40rem;
+    text-align: center;
+    background-color: #230052;;
+    padding: 2rem;
+    border-radius: 12px;
+    align-items: center;
+    color: white
+  }
+  
+  .control label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  
+  .control input,
+  .control textarea {
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.2rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+  }
+  
+  .control input:focus,
+  .control textarea:focus {
+    outline: none;
+    border-color: #230052;
+  }
+
+  .control button {
+    font: inherit;
+    cursor: pointer;
+    background: white;
+    border: 1px solid #230052;
+    color:black;
+    padding: 0.75rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .control button:hover,
+  .control button:active {
+    background-color: rgb(133, 127, 127);
+    border-color:white;
+  }
