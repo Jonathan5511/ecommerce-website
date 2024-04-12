@@ -10,6 +10,9 @@ const Contact=()=>{
             email:event.target.email.value,
             phone:event.target.phone.value
         }
+        if(event.target.name.value.trim().length ===0 && event.target.email.value.trim().length===0 && event.target.phone.value.trim().length===0){
+            return;
+        }
         fetch('https://contact-ecommerce-5c643-default-rtdb.firebaseio.com/contact.json',{
             method:'POST',
             body:JSON.stringify(contact),

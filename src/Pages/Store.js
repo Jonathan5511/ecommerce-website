@@ -17,6 +17,8 @@ const Store=(props)=>{
     return (<Fragment>
     <CartProvider>
       {showCart && <Cart onClose={onHideCartHandler} />}
+      <h2 style={{marginTop:-25,fontStyle:"italic"}} class="text-center">ALBUMS</h2>
+      <br/>
       <Header onShow={onShowCartHandler}/>
       <AvailableProducts />
     </CartProvider>

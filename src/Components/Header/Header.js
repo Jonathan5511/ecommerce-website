@@ -14,7 +14,7 @@ const Header=(props)=>{
     return(
         <Fragment>
             
-            <Container >
+            <Container style={{marginTop:-25}}>
                 <div class="text-center">
                     <Button variant="success" onClick={props.onShow}>Cart &nbsp;{numberOfCartItems}</Button>
                 </div>

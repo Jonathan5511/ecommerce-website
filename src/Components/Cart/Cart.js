@@ -27,7 +27,7 @@ const Cart=props=>{
             }}>
             <Row>
                 <Col>
-                    <Table className='align-middle ' size="sm" responsive>
+                    <Table className='align-middle ' size="sm-10" responsive>
                         <thead>
                             <tr>
                                 <th>ITEM</th>

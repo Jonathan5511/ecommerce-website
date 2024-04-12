@@ -1,6 +1,7 @@
 import { Card, Image,Container, CardTitle, CardFooter, Button,Col,Row} from "react-bootstrap"
 import CartContext from "../../store/cart-context"
 import { useContext } from "react"
+import { NavLink } from "react-router-dom"
 
 const productsArr = [
     { 
@@ -42,6 +43,7 @@ const AvailableProducts=props=>{
         })
     }
 
+ 
     return(
         <Container className="mt-3 "> 
             <ul>
@@ -50,9 +52,11 @@ const AvailableProducts=props=>{
                 
                         <li style={{listStyle:"none"}} key={item.id}>
                             <Col className="d-flex">
-                                <Card style={{ width: '18rem' }}>
+                                <Card style={{ width: '18.83rem' }}>
                                     <CardTitle style={{textAlign:"center"}}>{item.title}</CardTitle>
-                                    <Image src={item.imageUrl}></Image>
+                                    <NavLink to={`/${item.id}`}>
+                                        <Image src={item.imageUrl}></Image>
+                                    </NavLink>
                                     <CardFooter>${item.price}
                                         <Button style={{float: 'right'}} variant="primary" onClick={()=>onAddItemHandler(item.id,item.title,item.imageUrl,item.price)}>
                                             Add To Cart
