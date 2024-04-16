@@ -6,6 +6,7 @@ import RootLayout from "./Pages/root";
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
 import ProductDetails from "./Pages/ProductDetails";
+import Login from "./Pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
       {path:'/about',element:<About/>},
       {path:'/home',element:<Home/>},
       {path:'/contact',element:<Contact/>},
-      {path:'/:productID',element:<ProductDetails/>}
+      {path:'/:productID',element:<ProductDetails/>},
+      {path:'/login',element:<Login/>}
     ] 
   }
 ])

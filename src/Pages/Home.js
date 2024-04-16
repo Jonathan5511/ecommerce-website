@@ -7,7 +7,7 @@ const Home=()=>{
             <h1 class="text-center" style={{fontStyle:"oblique"}}>TOURS</h1>
             <br/>
             <Container>
-                <Table className='align-middle ' size="sm-10">
+                <Table class="text-center" className='align-middle ' size="sm-10">
                     <tbody>
                         <tr>
                             <td >JUL 16</td>
