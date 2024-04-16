@@ -1,23 +1,25 @@
 import { Fragment } from "react";
 import { Nav, Col, Row,Navbar,Container, Button} from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import classes from './MainNavigation.module.css'
 import { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 
 const MainNavigation=(props)=>{
+    const navigate = useNavigate();
     const authCtx = useContext(AuthContext);
     const isLoggedIn = authCtx.isLoggedIn;
 
     const LogoutHandler=()=>{
         authCtx.logout();
+        navigate('/login')
     }
 
     return (
         <Fragment>
             <h5>
                 <Navbar bg="dark" data-bs-theme="dark">
-                <Container className="justify-content-center">
+                <Container style={{justifyContent:"center"}}>
                     <Nav >
                             <Row >
                                 {isLoggedIn &&
@@ -37,7 +39,7 @@ const MainNavigation=(props)=>{
                                 {!isLoggedIn &&  <Col>
                                     <NavLink  to="/login" style={{color:'white', textDecoration: 'none'}} >LOGIN</NavLink>
                                 </Col>}
-                                {isLoggedIn && <Col className="justify-content-md-center">
+                                {isLoggedIn && <Col style={{justifyContent:'center'}}>
                                     <Button onClick={LogoutHandler} variant="light">Logout</Button>
                                 </Col>}
                             </Row>
